@@ -1,0 +1,7 @@
+<div>
+  <h1>About Us</h1>
+  <p>Chatterize is a location-based chat application. It'll put you in an anonymous group of people near your location,
+  from which you could arrange meetups or other fun activities!</p>
+
+  <p>Chatterize was built by <a href="http://jgefroh.com">Joseph Gefroh</a> to learn Phoenix / Elixir. The source code is available on <a href="https://github.com/jgefroh/chatterize">Github</a>.</p>
+</div>

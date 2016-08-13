@@ -15,7 +15,8 @@ defmodule Chatterize.Router do
 
   scope "/", Chatterize do
     pipe_through :browser # Use the default browser stack
-
+    get "/about", AboutController, :index
+    get "/about/:messenger", AboutController, :show
     get "/", PageController, :index
   end
 
