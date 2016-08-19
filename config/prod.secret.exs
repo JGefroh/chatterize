@@ -14,5 +14,5 @@ config :chatterize, Chatterize.Endpoint,
 # Configure your database
 config :chatterize, Chatterize.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: System.get_env("DATABASE_URL")
+  username: System.get_env("DATABASE_URL"),
   pool_size: 20
