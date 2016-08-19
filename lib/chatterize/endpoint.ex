@@ -1,7 +1,7 @@
 defmodule Chatterize.Endpoint do
   use Phoenix.Endpoint, otp_app: :chatterize
 
-  socket "/socket", Chatterize.UserSocket
+  socket "/socket/chat", Chatterize.ChatSocket
 
   # Serve at "/" the static files from "priv/static" directory.
   #

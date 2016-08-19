@@ -1,8 +1,8 @@
-defmodule Chatterize.UserSocket do
+defmodule Chatterize.ChatSocket do
   use Phoenix.Socket
 
   ## Channels
-  # channel "room:*", Chatterize.RoomChannel
+  channel "chat:*", Chatterize.ChatChannel
 
   ## Transports
   transport :websocket, Phoenix.Transports.WebSocket
