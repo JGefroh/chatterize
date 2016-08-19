@@ -1,6 +1,7 @@
 defmodule Chatterize.ChatSocket do
   use Phoenix.Socket
 
+
   ## Channels
   channel "chat:*", Chatterize.ChatChannel
 
@@ -20,6 +21,8 @@ defmodule Chatterize.ChatSocket do
   # See `Phoenix.Token` documentation for examples in
   # performing token verification on connect.
   def connect(_params, socket) do
+    colors = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F"]
+    socket = assign(socket, :public_id, Enum.join(Enum.take_random(colors, 6), ""))
     {:ok, socket}
   end
 

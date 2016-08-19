@@ -57,6 +57,7 @@ socket.connect()
 let channel = socket.channel("chat:lobby", {});
 let chatInput = document.getElementById("chat-input");
 let messagesContainer = document.getElementById("messages");
+let peopleContainer = document.getElementById("people");
 
 chatInput.addEventListener("keypress", event => {
   if (event.keyCode === 13) {
@@ -65,13 +66,20 @@ chatInput.addEventListener("keypress", event => {
   }
 });
 
+
 channel.on("new_message", payload => {
   let now = new Date();
-  let message = document.createTextNode(`[${now.getHours() + ':' + now.getMinutes()}]: ${payload.body}`);
+  let icon = document.createElement("span");
+  icon.style=`cursor: pointer; background-color: #${payload.id}; width: 1rem; height: 1rem; display:inline-block; border-radius: 50%; margin-right: 1rem;`
+  icon.title=`#${payload.id}`;
+  let message = document.createTextNode(`[${now.getHours() + ':' + (now.getMinutes() < 10 ? '0' + now.getMinutes() : now.getMinutes())}]: ${payload.body}`);
   let br = document.createElement("br");
   messagesContainer.appendChild(br);
+  messagesContainer.appendChild(icon);
   messagesContainer.appendChild(message);
+  messagesContainer.scrollTop = messagesContainer.scrollHeight;
 });
+
 channel.join()
   .receive("ok", resp => { console.log("Joined successfully", resp) })
   .receive("error", resp => { console.log("Unable to join", resp) })
