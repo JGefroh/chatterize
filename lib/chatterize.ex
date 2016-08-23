@@ -9,7 +9,7 @@ defmodule Chatterize do
     # Define workers and child supervisors to be supervised
     children = [
       # Start the Ecto repository
-      supervisor(Chatterize.Repo, []),
+      # supervisor(Chatterize.Repo, []),
       # Start the endpoint when the application starts
       supervisor(Chatterize.Endpoint, []),
       # Start your own worker by calling: Chatterize.Worker.start_link(arg1, arg2, arg3)
